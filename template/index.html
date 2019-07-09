@@ -8,10 +8,14 @@
 <body>
   <div id="app">
     <!-- ここに書き込むよー -->
-    <svg xmlns='http://www.w3.org/2000/svg' version="1.1">
-      <circle cx="100" cy="75" v-bind:r="radius" fill="lightpink" />
-    </svg>
-    <input type="range" min="0" max="100" v-model="radius">
+    <ul>
+      <li v-for="item in list"
+          v-bind:key="item.id"
+          v-bind:class="{ tuyoi: item.hp > 300}">
+        ID.{{ item.id }} {{ item.name }} HP.{{ item.hp }}
+        <span v-if="item.hp > 300">つよい！</span>
+      </li>
+    </ul>
   </div>
   <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
   <script src="main.js"></script>
