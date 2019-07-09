@@ -1,6 +1,7 @@
 let app = new Vue({
     el: '#app',
     data: {
-        message: "vueはじめる"
+        message: "vueはじめる",
+        list: ['ファーウェイ', 'リモコン', 'アップルティービー']
     }
 })
