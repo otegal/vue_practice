@@ -1,7 +1,11 @@
 let app = new Vue({
   el: '#app',
   data: {
-    count: 0
+    count: 0,
+    isChild: true,
+    isActive: true,
+    textColor: 'red',
+    bgColor: 'lightgray'
   },
   methods: {
     increment: function() {
