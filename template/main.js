@@ -8,19 +8,8 @@ let app = new Vue({
     ]
   },
   methods: {
-    doAdd: function() {
-      // list内でもっとも大きいidを取得
-      let max = this.list.reduce(function(a, b) {
-        return a > b.id ? a : b.id
-      }, 0)
-      this.list.push({
-        id: max + 1,
-        name: this.name, // this.nameは現在のフォームの入力値
-        hp: 500
-      })
-    },
-    doRemove: function(index) {
-      this.list.splice(index, 1)
-    },
+    doAttack: function(index) {
+      this.list[index].hp -= 10
+    }
   }
 })
