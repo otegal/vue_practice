@@ -3,6 +3,7 @@ let app = new Vue({
   data: {
     budget: 300,
     limit: 2,
+    order: false,
     list: [
       { id: 1, name: 'りんご', price: 100 },
       { id: 2, name: 'ばなな', price: 200 },
@@ -17,8 +18,11 @@ let app = new Vue({
         return el.price <= this.budget
       }, this)
     },
+    sorted: function() {
+      return _.orderBy(this.matched, 'price', this.order ? 'desc' : 'asc')
+    },
     limited: function () {
-      return this.matched.slice(0, this.limit)
+      return this.sorted.slice(0, this.limit)
     }
   }
 })
