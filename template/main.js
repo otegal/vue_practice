@@ -1,18 +1,12 @@
-let myComponent = {
-  template: '<p>MyComponent</p>'
-}
+Vue.component('comp-child', {
+  template: '<p>{{ val }}</p>',
+  props: ['val']
+})
 
 new Vue({
   el: '#app',
   data: {
-    price: 19800,
-  },
-  filters: {
-    localNum: function(val) {
-      return val.toLocaleString()
-    }
-  },
-  components: {
-    'my-component': myComponent
+    valueA: 'これは子A',
+    valueB: 'これは子B'
   }
 })
