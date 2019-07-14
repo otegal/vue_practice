@@ -1,6 +1,6 @@
 Vue.component('comp-child', {
-  template: '<p>{{ val }}</p>',
-  props: ['val']
+  props: ['val'], // propsで受け取るアトリビュート名を指定する
+  template: '<p>{{ val }}</p>', // propsで受け取ったvalを利用してテンプレートを作成する。
 })
 
 new Vue({
