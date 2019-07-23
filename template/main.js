@@ -1,18 +1,30 @@
 Vue.component('comp-child', {
-  // props: ['name', 'hp'],
-  template: '<button v-on:click="handleClick">イベント発火</button>',
+  props: { id: Number, name: String, hp: Number },
+  template: '<li>{{ name }} HP {{ hp }}\
+  <button v-on:click="doAttack">攻撃する</button></li>',
   methods: {
-    handleClick: function() {
-      this.$emit('childs-event')
+    doAttack: function() {
+      this.$emit('attack', this.id)
     }
   }
 })
 
 new Vue({
   el: '#app',
+  data: {
+    list: [
+      { id: 1, name: 'スライム', hp: 100 },
+      { id: 2, name: 'ゴブリン', hp: 200 },
+      { id: 3, name: 'ドラゴン', hp: 300 },
+    ]
+  },
   methods: {
-    parentsMethod: function() {
-      alert('イベントをキャッチ')
+    handleAttack: function(id) {
+      let item = this.list.find(function(el) {
+        return el.id === id
+      })
+
+      if (item !== undefined && item.hp > 0) item.hp -= 10
     }
   }
 })
